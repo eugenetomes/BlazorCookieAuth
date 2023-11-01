@@ -1,0 +1,13 @@
+﻿@attribute [RenderModeInteractiveServer]
+<h3>SignOut</h3>
+<button @onclick="LogOutHandler">Log Out</button>
+
+@code {
+    [Inject]
+    NavigationManager _navigationManager { get; set; } = default!;
+
+    private void LogOutHandler()
+    {
+        _navigationManager.NavigateTo($"/auth/logout", true);
+    }
+}

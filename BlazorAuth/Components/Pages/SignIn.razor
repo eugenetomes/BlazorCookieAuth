@@ -1,0 +1,39 @@
+﻿@attribute [RenderModeInteractiveServer]
+<h3>SignIn</h3>
+
+<div class="row justify-content-start py-2">
+    <div class="col-sm-2">
+        <label>
+            username:
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <InputText @bind-Value="username"></InputText>
+    </div>
+</div>
+
+<div class="row justify-content-start py-2">
+    <div class="col-sm-2">
+        <label>
+            password:
+        </label>
+    </div>
+    <div class="col-sm-2">
+        <InputText @bind-Value="psw"></InputText>
+    </div>
+</div>
+
+<button @onclick="LogInHandler" >Log In</button>
+
+@code {
+    [Inject]
+    NavigationManager _navigationManager { get; set; } = default!;
+
+    private string username = "";
+    private string psw = "";
+
+    private void LogInHandler()
+    {
+        _navigationManager.NavigateTo($"/auth/login?u={username}&p={psw}", true);
+    }
+}

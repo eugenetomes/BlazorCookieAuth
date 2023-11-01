@@ -1,0 +1,14 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <p>You are logged in as <b>@context.User.Identity?.Name</b></p>
+        <p>You are logged role <b>@context.User.IsInRole("Admin")</b></p>
+        <SignOut></SignOut>
+    </Authorized>
+    <NotAuthorized>
+        <p>Please login First</p>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+}
